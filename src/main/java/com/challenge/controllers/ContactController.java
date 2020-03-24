@@ -24,32 +24,30 @@ public class ContactController {
 
 	@PostMapping
 	public void createContact(@RequestBody ContactDto dto) {
-		contactservice.createContact(dto);
+		contactservice.createNewContact(dto);
 
 	}
 
-	@GetMapping(value = "/{id}")
-	public ContactDto showContact(@PathVariable int id) {
-		return contactservice.getByContactid(id);
-
-	}
-
-	@GetMapping
-	public List<ContactDto> showAllContact() {
-		return contactservice.getAllContact();
-
-	}
-
-	@PutMapping(value = "/{id}")
-	public void updateContact(@PathVariable int id, @RequestBody ContactDto dto) {
-		contactservice.updateContactById(id, dto);
-
-	}
-
-	@DeleteMapping(value = "/{id}")
-	public void deleteContact(@PathVariable int id) {
-		contactservice.deleteContactById(id);
-
-	}
+	
+	  @GetMapping(value = "/{id}") public ContactDto showContact(@PathVariable int
+	  id) { return contactservice.getContactById(id);
+	  
+	  }
+	  
+	  @GetMapping public List<ContactDto> showAllContact() { return
+	  contactservice.getAllContact();
+	  
+	  }
+	  
+	  @PutMapping(value = "/{id}") public void updateContact(@PathVariable int
+	  id, @RequestBody ContactDto dto) { contactservice.updateById(id, dto);
+	  
+	  }
+	  
+	  @DeleteMapping(value = "/{id}") public void deleteContact(@PathVariable int
+	  id) { contactservice.deleteContactById(id);
+	  
+	  }
+	 
 
 }
